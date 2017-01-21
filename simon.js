@@ -1,4 +1,11 @@
 $(document).ready(function() {
+  
+  var tones = [
+  new Audio('https://s3.amazonaws.com/freecodecamp/simonSound1.mp3'), 
+  new Audio('https://s3.amazonaws.com/freecodecamp/simonSound2.mp3'),
+  new Audio('https://s3.amazonaws.com/freecodecamp/simonSound3.mp3'), 
+  new Audio('https://s3.amazonaws.com/freecodecamp/simonSound4.mp3')
+  ]; 
    
 $('.switch input').on('change', function(){
  if($(this).is(':checked')){
@@ -11,12 +18,10 @@ $('.switch input').on('change', function(){
    
 $('#strict').click(function(){
   if($('.switch input').is(':checked')){
-      strictOn();
-    }else{
-      strictOff();
-   }
- });
-
+       $('#strict-light').toggleClass('strict-on');
+  }
+});
+  
 });
  
  function turnOn() {
@@ -27,12 +32,9 @@ $('#strict').click(function(){
 function turnOff() {
     $('#screen').text('--');
     $('#screen').css('color', '#990000');
-  }
-
-function strictOn(){
-  $('#strict-on').css('background-color', 'red');
 }
 
 function strictOff(){
-  $('#strict-on').css('background-color', '#888');
+  $('#strict-light').removeClass('strict-on');
+  $('#strict-light').addClass('strict-off');
 }
